@@ -45,7 +45,8 @@ namespace GUIEX2
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
         }
-
+        
+        //the start button that causes some elements on the screen to disappear and other to appear
         private void button3_Click(object sender, EventArgs e)//this is the start button
         {
             string currentResin = textBox1.Text;
@@ -87,7 +88,7 @@ namespace GUIEX2
 
 
 
-
+        //Used to split the string and convert the numbers into ints updates it and reconverts back to a string and displays the output
         private void timer1_Tick(object sender, EventArgs e)//timer for the total resin count
         {
             string var = textBox4.Text;
@@ -104,19 +105,20 @@ namespace GUIEX2
             }
             else { TotalResinCounter.Enabled = false; }           
         }
-
+        
+        //same as above converting strings to ints to just updates the timer and display it
         private void TimeTillResinIsDone_Tick(object sender, EventArgs e)//timer for the countdown timer
         {
-            int s, m, h;
+            int s, m, h;//keeps track of seconds,minutes,and hours
             bool timeron = true;
             string var = textBox3.Text;
             char[] seperator = { ':', ' ' };
-            int count = 3;//look here if there are any problems
+            int count = 3;
             string[] strings = var.Split(seperator, count, StringSplitOptions.None);
             s = int.Parse(strings[2]);
             m = int.Parse(strings[1]);
             h = int.Parse(strings[0]);
-            if (h == 0 && m == 0 && s == 0)
+            if (h == 0 && m == 0 && s == 0)//this was implemented to prevent time going into the negative
             {
                 TimeTillResinIsDone.Enabled = false;
                 timeron = false;
@@ -148,7 +150,7 @@ namespace GUIEX2
         {
 
         }
-
+        //just returns the GUI back to the orginal start screen
         private void button1_Click(object sender, EventArgs e)//the reset button
         {
             textBox4.Visible = false;
